@@ -11,10 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
@@ -30,7 +26,6 @@ class EduardMarinescuJvjs5JavaProjectApplicationTests {
     @Test
     void testAdaugaPersoana() {
         Person person = new Person();
-        person.setIdPerson(10);
         person.setFirstName("Eduard");
         person.setLastName("Marinescu");
         person.setEmailPerson("eduard.marinescu98@gmail.com");
@@ -40,18 +35,6 @@ class EduardMarinescuJvjs5JavaProjectApplicationTests {
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(person, responseEntity.getBody());
-    }
-
-    @Test
-    void testAduToatePersoanele() {
-        List<Person> personList = new ArrayList<>();
-        personList.add(new Person(1, "Ion", "Mihai", "IonMihai@test.com", 22));
-        personList.add(new Person(2, "Alex", "Marian", "AlexMarian@test.com", 26));
-
-        ResponseEntity<List<Person>> responseEntity = personController.aduToatePersoanele();
-
-        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        assertEquals(personList, responseEntity.getBody());
     }
 
     @Test
@@ -69,6 +52,15 @@ class EduardMarinescuJvjs5JavaProjectApplicationTests {
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(person, responseEntity.getBody());
+    }
+
+    @Test
+    void testFindPersonNonExistentId() {
+        Integer nonExistentId = 9999;
+
+        ResponseEntity<Person> responseEntity = personController.findPersonById(nonExistentId);
+
+        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
     @Test

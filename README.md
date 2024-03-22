@@ -10,4 +10,10 @@ Proiect Java
 "lastName":"Marian",
 "emailPerson":"AlexMarian@test.com",
 "agePerson":26
+},
+{
+"firstName":"Andrei",
+"lastName":"Vasile",
+"emailPerson":"AndreiVasile@test.com",
+"agePerson":30
 }
