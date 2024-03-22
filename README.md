@@ -1,7 +1,13 @@
 Proiect Java
-# header H1
-## header H2
-### header H3
-#### header H4
-##### header H5
-###### header H6
+{
+"firstName":"Ion",
+"lastName":"Mihai",
+"emailPerson":"IonMihai@test.com",
+"agePerson":22
+};
+{
+"firstName":"Alex",
+"lastName":"Marian",
+"emailPerson":"AlexMarian@test.com",
+"agePerson":26
+}

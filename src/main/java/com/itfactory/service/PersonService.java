@@ -38,6 +38,11 @@ public class PersonService {
     }
 
     public void deleteById(Integer personId) {
-        repository.deleteById(personId);
+        Optional<Person> byId = repository.findById(personId);
+        if (byId.isPresent()) {
+            repository.deleteById(personId);
+        } else {
+            throw new IllegalArgumentException("Person with id " + personId + " not found.");
+        }
     }
 }

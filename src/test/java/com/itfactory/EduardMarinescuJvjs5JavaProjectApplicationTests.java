@@ -6,7 +6,6 @@ import com.itfactory.service.PersonService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +30,7 @@ class EduardMarinescuJvjs5JavaProjectApplicationTests {
     @Test
     void testAdaugaPersoana() {
         Person person = new Person();
-        person.setIdPerson(1);
+        person.setIdPerson(10);
         person.setFirstName("Eduard");
         person.setLastName("Marinescu");
         person.setEmailPerson("eduard.marinescu98@gmail.com");
@@ -46,8 +45,8 @@ class EduardMarinescuJvjs5JavaProjectApplicationTests {
     @Test
     void testAduToatePersoanele() {
         List<Person> personList = new ArrayList<>();
-        personList.add(new Person(3, "Rosy", "Rosy", "bobobobob@yahoo.com", 26));
-        personList.add(new Person(1, "Eduard", "Marinescu", "eduard.marinescu98@gmail.com", 26));
+        personList.add(new Person(1, "Ion", "Mihai", "IonMihai@test.com", 22));
+        personList.add(new Person(2, "Alex", "Marian", "AlexMarian@test.com", 26));
 
         ResponseEntity<List<Person>> responseEntity = personController.aduToatePersoanele();
 
@@ -61,10 +60,10 @@ class EduardMarinescuJvjs5JavaProjectApplicationTests {
 
         Person person = new Person();
         person.setIdPerson(1);
-        person.setFirstName("Eduard");
-        person.setLastName("Marinescu");
-        person.setEmailPerson("eduard.marinescu98@gmail.com");
-        person.setAgePerson(26);
+        person.setFirstName("Ion");
+        person.setLastName("Mihai");
+        person.setEmailPerson("IonMihai@test.com");
+        person.setAgePerson(22);
 
         ResponseEntity<Person> responseEntity = personController.findPersonById(personId);
 
@@ -73,8 +72,8 @@ class EduardMarinescuJvjs5JavaProjectApplicationTests {
     }
 
     @Test
-    void testDeleteById() {
-        int personId = 1;
+    void testDeleteByIdExistent() {
+        int personId = 2;
 
         ResponseEntity<Void> responseEntity = personController.deleteById(personId);
 
@@ -82,18 +81,18 @@ class EduardMarinescuJvjs5JavaProjectApplicationTests {
     }
 
     @Test
+    void testDeleteNonExistentId() {
+        Integer nonExistentId = 9999;
+
+        ResponseEntity<Void> responseEntity = personController.deleteById(nonExistentId);
+
+        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
+    }
+
+    @Test
     void testModifyLastNameById() {
         int personId = 1;
         String newPersonLastName = "NewLastName";
-
-        Person person = new Person();
-        person.setIdPerson(1);
-        person.setFirstName("Eduard");
-        person.setLastName("Marinescu");
-        person.setEmailPerson("eduard.marinescu98@gmail.com");
-        person.setAgePerson(26);
-
-        Optional<Person> optionalPerson = Optional.of(person);
 
         ResponseEntity<Person> responseEntity = personController.modifyNameById(personId, newPersonLastName);
 
@@ -105,15 +104,6 @@ class EduardMarinescuJvjs5JavaProjectApplicationTests {
     void testModifyEmailById() {
         int personId = 1;
         String newEmailAddress = "NewEmailAddress@gmail.com";
-
-        Person person = new Person();
-        person.setIdPerson(1);
-        person.setFirstName("Eduard");
-        person.setLastName("Marinescu");
-        person.setEmailPerson("eduard.marinescu98@gmail.com");
-        person.setAgePerson(26);
-
-        Optional<Person> optionalPerson = Optional.of(person);
 
         ResponseEntity<Person> responseEntity = personController.modifyEmailById(personId, newEmailAddress);
 

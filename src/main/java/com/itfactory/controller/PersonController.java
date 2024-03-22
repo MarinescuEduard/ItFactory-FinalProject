@@ -44,9 +44,12 @@ public class PersonController {
 
     @DeleteMapping("/{personId}")
     public ResponseEntity<Void> deleteById(@PathVariable Integer personId) {
-        personService.deleteById(personId);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
+        try {
+            personService.deleteById(personId);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (IllegalArgumentException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PatchMapping("/{personId}")
