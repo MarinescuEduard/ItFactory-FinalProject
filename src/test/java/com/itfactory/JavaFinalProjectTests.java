@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-class EduardMarinescuJvjs5JavaProjectApplicationTests {
+class JavaFinalProjectTests {
 
     @Autowired
     private PersonController personController;
