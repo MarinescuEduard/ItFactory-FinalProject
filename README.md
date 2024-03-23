@@ -69,7 +69,8 @@ And finally, insert this text to create the third person:
 Now we have 3 persons in out database.
 
 4. In order to see our database with the persons that we added in the previous steps, 
-we create a GET request with the following line: http://localhost:9099/persons/getPersonList
+we create a GET request with the following line: http://localhost:9099/persons/getPersonList. We should see the following result.
+![getPersonList Screenshot](screenshots/getPersonList.png)
 
 5. We can also check a specific person using their ID. In order to do this, we create a new GET request with the following line: http://localhost:9099/persons/1
 The first person that we added should be returned to us as seen in this screenshot.
@@ -84,10 +85,16 @@ In the body of the request we can add the following raw Text "Gheorghe" as seen 
 
 We should see the last name changed an get the status 200 OK like this snip here.
 
+![changeLastNameOutcome Screenshot](screenshots/changeLastNameOutcome.png)
+
 7. Now we will modify the e-mail address of this person. To do that, we create another Patch request with this code: http://localhost:9099/persons/email/3
 In the body we add the following raw text "AndreiGheorghe@test.com".
 
+![changeEmail Screenshot](screenshots/changeEmail.png)
+
 We should see the e-mail changed.
+
+![changeEmailOutcome Screenshot](screenshots/changeEmailOutcome.png)
 
 8. Finally, we can also delete a person by ID, so we will proceed deleting the person with ID 3.
 To do this, we create a new Delete request with this line http://localhost:9099/persons/3.
@@ -99,3 +106,5 @@ We should get 204 No Content status.
 If you followed all steps above in the order, we should have all 7 tests passed.
 
 ![tests Screenshot](screenshots/tests.png)
+
+If you got a different result, you will have to delete the "person" table in pgAdmin and restart with all the steps because the application is set tu "update" in application.properties.
