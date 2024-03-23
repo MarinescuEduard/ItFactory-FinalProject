@@ -105,6 +105,6 @@ We should get 204 No Content status.
 9. Now we can switch back to IntelliJ and under src->test->java->com.itfactory->JavaFinalProjectTests, we can run all tests for the class.
 If you followed all steps above in the order, we should have all 9 tests passed.
 
-![tests Screenshot](screenshots/tests.png)
+![tests Screenshot](screenshots/testsv2.png)
 
 If you got a different result, you will have to delete the "person" table in pgAdmin and restart with all the steps because the application is set tu "update" in application.properties.
