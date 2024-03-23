@@ -17,6 +17,7 @@ The application is created using the SprinBoot framework and uses Postman in ord
 ## Usage
 
 Make sure you have both Postman and pgAdmin opened.
+Please follow this steps in order an read the entire sentence before proceeding. Thank you!
 
 1. Run the main application under src->main->java->com.itfactory->JavaFinalProject.
 After this step, we should see the table created in pgAdmin4 like the screenshot below <To be filled>
@@ -53,4 +54,26 @@ And finally, insert this text to create the third person:
 
 Now we have 3 persons in out database.
 
-4. In order to see our persons in the database, we create a GET request with the following line: http://localhost:9099/persons/getPersonList
+4. In order to see our database with the persons that we added in the previous steps, 
+we create a GET request with the following line: http://localhost:9099/persons/getPersonList
+
+5. We can also check a specific person using their ID. In order to do this, we create a new GET request with the following line: http://localhost:9099/persons/1
+The first person that we added should be returned to us as seen in this screenshot.
+
+6. Moving forward, we will proceed to modify the last name of the third person we added.
+In order to do this, we will create a Patch request with the following line: http://localhost:9099/persons/3
+In the body of the request we can add the following raw Text "Gheorghe" as seen in this picture:
+
+We should see the last name changed an get the status 200 OK like this snip here.
+
+7. Now we will modify the e-mail address of this person. To do that, we create another Patch request with this code: http://localhost:9099/persons/email/3
+In the body we add the following raw text "AndreiGheorghe@test.com".
+
+We should see the e-mail changed.
+
+8. Finally, we can also delete a person by ID, so we will proceed deleting the person with ID 3.
+To do this, we create a new Delete request with this line http://localhost:9099/persons/3.
+We should get 204 No Content status.
+
+9. Now we can switch back to IntelliJ and under test->java->com.itfactory->JavaFinalProjectTests, we can run all tests as can be seen below.
+If you followed all steps above in the order, we should have all 7 tests passed.
