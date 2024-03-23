@@ -48,7 +48,7 @@ public class PersonService {
 
     public Person modifyById(Integer personId, String newPersonName) {
         Optional<Person> byId = repository.findById(personId);
-        if (byId.isPresent()){
+        if (byId.isPresent()) {
             Person person = byId.get();
             person.setLastName(newPersonName);
             return repository.save(person);
@@ -59,7 +59,7 @@ public class PersonService {
 
     public Person modifyEmailById(Integer personId, String newEmail) {
         Optional<Person> byId = repository.findById(personId);
-        if (byId.isPresent()){
+        if (byId.isPresent()) {
             Person person = byId.get();
             person.setEmailPerson(newEmail);
             return repository.save(person);
