@@ -20,7 +20,8 @@ Make sure you have both Postman and pgAdmin opened.
 Please follow this steps in order an read the entire sentence before proceeding. Thank you!
 
 1. Run the main application under src->main->java->com.itfactory->JavaFinalProject.
-After this step, we should see the table created in pgAdmin, under the Tables tab, like the screenshot below <To be filled>
+After this step, we should see the table created in pgAdmin, under the Tables tab, like the screenshot below.
+![pgAdmin Screenshot](screenshots/pgAdmin.png)
 
 2. In Postman we can create the following POST Request: http://localhost:9099/persons/addPerson
 In the Body of the request, we can switch the input to raw and Json as the picture below <To be filled>
