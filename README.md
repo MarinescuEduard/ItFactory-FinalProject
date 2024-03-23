@@ -10,9 +10,9 @@ The application is created using the SprinBoot framework and uses Postman in ord
 
 ## Installation
 
-Step 1: - Clone the repository.
-Step 2: - Under pom.xml add the following dependencies: <To be filled>
-Step 3: - Under src->main->resources->application.properties complete the following fields: <To be filled>
+1. Clone the repository.
+2. Under pom.xml add the following dependencies: <To be filled>
+3. Under src->main->resources->application.properties complete the following fields: <To be filled>
 
 ## Usage
 
