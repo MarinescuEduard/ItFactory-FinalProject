@@ -45,4 +45,26 @@ public class PersonService {
             throw new IllegalArgumentException("Person with id " + personId + " not found.");
         }
     }
+
+    public Person modifyById(Integer personId, String newPersonName) {
+        Optional<Person> byId = repository.findById(personId);
+        if (byId.isPresent()){
+            Person person = byId.get();
+            person.setLastName(newPersonName);
+            return repository.save(person);
+        } else {
+            throw new IllegalArgumentException("Person with id " + personId + " not found.");
+        }
+    }
+
+    public Person modifyEmailById(Integer personId, String newEmail) {
+        Optional<Person> byId = repository.findById(personId);
+        if (byId.isPresent()){
+            Person person = byId.get();
+            person.setEmailPerson(newEmail);
+            return repository.save(person);
+        } else {
+            throw new IllegalArgumentException("Person with id " + personId + " not found.");
+        }
+    }
 }

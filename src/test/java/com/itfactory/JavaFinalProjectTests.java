@@ -93,6 +93,15 @@ class JavaFinalProjectTests {
     }
 
     @Test
+    void testModifyLastNameNonExistent() {
+        Integer nonExistentId = 9999;
+
+        ResponseEntity<Person> responseEntity = personController.modifyNameById(nonExistentId, "Ion");
+
+        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
+    }
+
+    @Test
     void testModifyEmailById() {
         int personId = 1;
         String newEmailAddress = "NewEmailAddress@gmail.com";
@@ -101,5 +110,14 @@ class JavaFinalProjectTests {
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(newEmailAddress, responseEntity.getBody().getEmailPerson());
+    }
+
+    @Test
+    void testModifyEmailNonExistent() {
+        Integer nonExistentId = 9999;
+
+        ResponseEntity<Person> responseEntity = personController.modifyEmailById(nonExistentId, "test@test.com");
+
+        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 }

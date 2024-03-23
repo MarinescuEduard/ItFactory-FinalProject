@@ -55,9 +55,7 @@ public class PersonController {
     @PatchMapping("/{personId}")
     public ResponseEntity<Person> modifyNameById(@PathVariable Integer personId, @RequestBody String newPersonName) {
         try {
-            Person person = personService.findById(personId);
-            person.setLastName(newPersonName);
-            personService.createPerson(person);
+            Person person = personService.modifyById(personId, newPersonName);
             return ResponseEntity.ok(person);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -67,9 +65,7 @@ public class PersonController {
     @PatchMapping("/email/{personId}")
     public ResponseEntity<Person> modifyEmailById(@PathVariable Integer personId, @RequestBody String newEmail) {
         try {
-            Person person = personService.findById(personId);
-            person.setEmailPerson(newEmail);
-            personService.createPerson(person);
+            Person person = personService.modifyEmailById(personId, newEmail);
             return ResponseEntity.ok(person);
         } catch (IllegalArgumentException e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
