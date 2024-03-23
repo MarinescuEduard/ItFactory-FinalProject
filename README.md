@@ -13,32 +13,7 @@ The application is created using the SprinBoot framework and uses Postman in ord
 1. Clone the repository.
 2. If you are missing any dependency, under pom.xml add the following dependencies and rebuild the project:
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.10.1</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+![dependencies Screenshot](screenshots/dependencies.png)
    
 3. Under src->main->resources->application.properties complete the following fields:
 
