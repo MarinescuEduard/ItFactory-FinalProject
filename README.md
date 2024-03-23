@@ -103,7 +103,7 @@ We should get 204 No Content status.
 ![deleteById Screenshot](screenshots/deleteById.png)
 
 9. Now we can switch back to IntelliJ and under src->test->java->com.itfactory->JavaFinalProjectTests, we can run all tests for the class.
-If you followed all steps above in the order, we should have all 7 tests passed.
+If you followed all steps above in the order, we should have all 9 tests passed.
 
 ![tests Screenshot](screenshots/tests.png)
 
