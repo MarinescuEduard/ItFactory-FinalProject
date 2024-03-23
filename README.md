@@ -27,7 +27,7 @@ After this step, we should see the table created in pgAdmin, under the Tables ta
 2. In Postman we can create the following POST Request: http://localhost:9099/persons/addPerson
 In the Body of the request, we can switch the input to raw and Json as the picture below.
 
-[addPerson Screenshot](screenshots/addPerson.png)
+![addPerson Screenshot](screenshots/addPerson.png)
 
 3. In the body of the request we add the following text, and then we send the request in order to create the first person.
 
@@ -64,9 +64,13 @@ we create a GET request with the following line: http://localhost:9099/persons/g
 5. We can also check a specific person using their ID. In order to do this, we create a new GET request with the following line: http://localhost:9099/persons/1
 The first person that we added should be returned to us as seen in this screenshot.
 
+![findById Screenshot](screenshots/findById.png)
+
 6. Moving forward, we will proceed to modify the last name of the third person we added.
 In order to do this, we will create a Patch request with the following line: http://localhost:9099/persons/3
 In the body of the request we can add the following raw Text "Gheorghe" as seen in this picture:
+
+![changeLastName Screenshot](screenshots/changeLastName.png)
 
 We should see the last name changed an get the status 200 OK like this snip here.
 
@@ -79,5 +83,9 @@ We should see the e-mail changed.
 To do this, we create a new Delete request with this line http://localhost:9099/persons/3.
 We should get 204 No Content status.
 
-9. Now we can switch back to IntelliJ and under src->test->java->com.itfactory->JavaFinalProjectTests, we can run all tests as can be seen below.
+![deleteById Screenshot](screenshots/deleteById.png)
+
+9. Now we can switch back to IntelliJ and under src->test->java->com.itfactory->JavaFinalProjectTests, we can run all tests for the class.
 If you followed all steps above in the order, we should have all 7 tests passed.
+
+![tests Screenshot](screenshots/tests.png)
