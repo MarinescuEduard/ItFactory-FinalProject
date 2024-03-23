@@ -25,7 +25,9 @@ After this step, we should see the table created in pgAdmin, under the Tables ta
 ![pgAdmin Screenshot](screenshots/pgAdmin.png)
 
 2. In Postman we can create the following POST Request: http://localhost:9099/persons/addPerson
-In the Body of the request, we can switch the input to raw and Json as the picture below <To be filled>
+In the Body of the request, we can switch the input to raw and Json as the picture below.
+
+[addPerson Screenshot](screenshots/addPerson.png)
 
 3. In the body of the request we add the following text, and then we send the request in order to create the first person.
 
