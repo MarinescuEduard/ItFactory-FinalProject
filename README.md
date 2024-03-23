@@ -12,7 +12,9 @@ The application is created using the SprinBoot framework and uses Postman in ord
 
 1. Clone the repository.
 2. Under pom.xml add the following dependencies: <To be filled>
-3. Under src->main->resources->application.properties complete the following fields: <To be filled>
+3. Under src->main->resources->application.properties complete the following fields:
+
+![applicationProperties Screenshot](screenshots/applicationProperties.png)
 
 ## Usage
 
