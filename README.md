@@ -24,6 +24,10 @@ The application is created using the SprinBoot framework and uses Postman in ord
  - spring.datasource.password - Fill in your SpringBoot password
  - server.port - Please fill in "9099" as this is the port used for all the API requests created in this project. If you fill a different port please make sure you adjust in the Postman requests.
 
+4. Open pgAdmin and create a new database called "finalProject"
+
+![CreatePgAdminDatabase Screenshot](screenshots/CreatePgAdminDatabase.png)
+
 ## Usage
 
 Make sure you have both Postman and pgAdmin opened.
