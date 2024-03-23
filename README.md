@@ -11,10 +11,43 @@ The application is created using the SprinBoot framework and uses Postman in ord
 ## Installation
 
 1. Clone the repository.
-2. Under pom.xml add the following dependencies: <To be filled>
+2. If you are missing any dependency, under pom.xml add the following dependencies and rebuild the project:
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+   
 3. Under src->main->resources->application.properties complete the following fields:
 
 ![applicationProperties Screenshot](screenshots/applicationProperties.png)
+
+ - spring.datasource.url - I am using the default "5432" port. Make sure to change to the port you are using.
+ - spring.datasource.username - Fill in you SpringBoot username
+ - spring.datasource.password - Fill in your SpringBoot password
+ - server.port - Please fill in "9099" as this is the port used for all the API requests created in this project. If you fill a different port please make sure you adjust in the Postman requests.
 
 ## Usage
 
