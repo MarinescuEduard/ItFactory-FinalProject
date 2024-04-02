@@ -3,6 +3,8 @@ package com.itfactory;
 import com.itfactory.controller.PersonController;
 import com.itfactory.model.Person;
 import com.itfactory.service.PersonService;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,18 @@ class JavaFinalProjectTests {
     @Autowired
     private PersonService personService;
 
+    @BeforeEach
+    void setUpForTests() {
+        Person person = new Person(1, "Ion", "Mihai", "IonMihai@test.com",22);
+        Person person2 = new Person(2, "Alex", "Marian", "AlexMarian@test.com",26);
+        Person person3 = new Person(3, "Andrei", "Vasile", "AndreiVasile@test.com",30);
+        personController.createPerson(person);
+        personController.createPerson(person2);
+        personController.createPerson(person3);
+    }
+
     @Test
-    void testAdaugaPersoana() {
+    void testAddPerson() {
         Person person = new Person();
         person.setFirstName("Eduard");
         person.setLastName("Marinescu");

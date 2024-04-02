@@ -3,7 +3,6 @@ package com.itfactory.controller;
 
 import com.itfactory.model.Person;
 import com.itfactory.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +27,7 @@ public class PersonController {
 
     @GetMapping("/getPersonList")
     public ResponseEntity<List<Person>> aduToatePersoanele() {
-        List<Person> list = personService.aduToatePersoanele();
+        List<Person> list = personService.getAllPersons();
         return ResponseEntity.ok(list);
     }
 

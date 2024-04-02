@@ -19,7 +19,12 @@ public class Person {
     private String emailPerson;
     private Integer agePerson;
 
-    public Person(int i, String eduard, String marinescu, String mail, int i1) {
+    public Person(int personId, String personFirstName, String personLastName, String personEmail, int personAge) {
+        this.idPerson = personId;
+        this.firstName = personFirstName;
+        this.lastName = personLastName;
+        this.emailPerson = personEmail;
+        this.agePerson = personAge;
     }
 
     public Person() {
