@@ -26,7 +26,7 @@ public class PersonController {
     }
 
     @GetMapping("/getPersonList")
-    public ResponseEntity<List<Person>> aduToatePersoanele() {
+    public ResponseEntity<List<Person>> getAllPersons() {
         List<Person> list = personService.getAllPersons();
         return ResponseEntity.ok(list);
     }

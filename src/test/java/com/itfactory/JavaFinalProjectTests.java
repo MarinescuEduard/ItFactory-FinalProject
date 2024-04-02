@@ -3,7 +3,7 @@ package com.itfactory;
 import com.itfactory.controller.PersonController;
 import com.itfactory.model.Person;
 import com.itfactory.service.PersonService;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -27,9 +27,9 @@ class JavaFinalProjectTests {
 
     @BeforeEach
     void setUpForTests() {
-        Person person = new Person(1, "Ion", "Mihai", "IonMihai@test.com",22);
-        Person person2 = new Person(2, "Alex", "Marian", "AlexMarian@test.com",26);
-        Person person3 = new Person(3, "Andrei", "Vasile", "AndreiVasile@test.com",30);
+        Person person = new Person(1, "Ion", "Mihai", "IonMihai@test.com", 22);
+        Person person2 = new Person(2, "Alex", "Marian", "AlexMarian@test.com", 26);
+        Person person3 = new Person(3, "Andrei", "Vasile", "AndreiVasile@test.com", 30);
         personController.createPerson(person);
         personController.createPerson(person2);
         personController.createPerson(person3);
@@ -47,6 +47,7 @@ class JavaFinalProjectTests {
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(person, responseEntity.getBody());
+        System.out.println(responseEntity.getBody());
     }
 
     @Test

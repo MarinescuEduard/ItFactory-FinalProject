@@ -72,6 +72,10 @@ And finally, insert this text to create the third person:
 
 Now we have 3 persons in out database.
 
+NOTE: For the purpose of the tests, we do not need to add any persons to the database as I there is this @BeforeEach annotation which adds 3 Person objects to the database before each test.
+
+![beforeEachScreenshot Screenshot](/screenshots/beforeEachScreenshot.png)
+
 4. In order to see our database with the persons that we added in the previous steps, 
 we create a GET request with the following line: http://localhost:9099/persons/getPersonList. We should see the following result.
 ![getPersonList Screenshot](screenshots/getPersonList.png)
