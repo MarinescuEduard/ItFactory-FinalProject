@@ -25,7 +25,7 @@ The application is created using the SprinBoot framework and uses Postman in ord
 - server.port - Please fill in "9099" as this is the port used for all the API requests created in this project. If you
   fill a different port please make sure you adjust in the Postman requests.
 
-4. Open pgAdmin and create a new database called "finalProject" OR alternatively, I added the .sql file in the repertory. It was created using pg_dump.
+4. Open pgAdmin and create a new database called "finalProject" OR alternatively, I added the .sql file in the repository. It was created using pg_dump.
 
 In order to install the database using the SQL file, we have to open command prompt (cmd.exe).
 
