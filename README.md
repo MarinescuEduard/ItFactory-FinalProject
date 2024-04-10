@@ -33,7 +33,6 @@ In order to install the database using the SQL file, we have to open command pro
 - Then we introduce the following command in cmd window: -psql -U <user> -d <database> -1 -f <download folder of .sql file> where <user> should be changed with your PostgreSQL username, <database> should be changed to finalProject, and <download folder> should be changed to the root of the download folder of .sql file.
 - After that, you will be asked to introduce your PostgreSQL password. The database should be installed now.
 
-![CreatePgAdminDatabase Screenshot](screenshots/CreatePgAdminDatabase.png)
 
 ## Usage
 
