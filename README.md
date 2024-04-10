@@ -25,7 +25,13 @@ The application is created using the SprinBoot framework and uses Postman in ord
 - server.port - Please fill in "9099" as this is the port used for all the API requests created in this project. If you
   fill a different port please make sure you adjust in the Postman requests.
 
-4. Open pgAdmin and create a new database called "finalProject"
+4. Open pgAdmin and create a new database called "finalProject" OR alternatively, I added the .sql file in the repertory. It was created using pg_dump.
+
+In order to install the database using the SQL file, we have to open command prompt (cmd.exe).
+
+- In the cmd window, we have to change the directory to where PostgreSQL is installed and select the "bin" folder. As an example, we change the directory to H:\PostgreSQL\bin.
+- Then we introduce the following command in cmd window: -psql -U <user> -d <database> -1 -f <download folder of .sql file> where <user> should be changed with your PostgreSQL username, <database> should be changed to finalProject, and <download folder> should be changed to the root of the download folder of .sql file.
+- After that, you will be asked to introduce your PostgreSQL password. The database should be installed now.
 
 ![CreatePgAdminDatabase Screenshot](screenshots/CreatePgAdminDatabase.png)
 
