@@ -19,19 +19,14 @@ public class Person {
     private String emailPerson;
     private Integer agePerson;
 
-    public Person(int personId, String personFirstName, String personLastName, String personEmail, int personAge) {
-        this.idPerson = personId;
-        this.firstName = personFirstName;
-        this.lastName = personLastName;
-        this.emailPerson = personEmail;
-        this.agePerson = personAge;
+    public Person(String firstName, String lastName, String emailPerson, Integer agePerson) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailPerson = emailPerson;
+        this.agePerson = agePerson;
     }
 
     public Person() {
-    }
-
-    public void setIdPerson(Integer idPerson) {
-        this.idPerson = idPerson;
     }
 
     public void setFirstName(String firstName) {

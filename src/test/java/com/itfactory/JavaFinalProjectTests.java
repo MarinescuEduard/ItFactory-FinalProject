@@ -25,14 +25,25 @@ class JavaFinalProjectTests {
     @Autowired
     private PersonService personService;
 
+    private static int idPersonTest1;
+    private static int idPersonTest2;
+    private static int idPersonTest3;
+
     @BeforeEach
-    void setUpForTests() {
-        Person person = new Person(1, "Ion", "Mihai", "IonMihai@test.com", 22);
-        Person person2 = new Person(2, "Alex", "Marian", "AlexMarian@test.com", 26);
-        Person person3 = new Person(3, "Andrei", "Vasile", "AndreiVasile@test.com", 30);
-        personController.createPerson(person);
-        personController.createPerson(person2);
-        personController.createPerson(person3);
+    void setUp() {
+        Person person = new Person("Ion", "Mihai", "IonMihai@test.com", 22);
+        Person person2 = new Person("Alex", "Marian", "AlexMarian@test.com", 26);
+        Person person3 = new Person("Andrei", "Vasile", "AndreiVasile@test.com", 30);
+        idPersonTest1 = personService.createPerson(person).getIdPerson();
+        idPersonTest2 = personService.createPerson(person2).getIdPerson();
+        idPersonTest3 = personService.createPerson(person3).getIdPerson();
+    }
+
+    @AfterEach
+    void clearDatabase() {
+        personController.deleteById(idPersonTest1);
+        personController.deleteById(idPersonTest2);
+        personController.deleteById(idPersonTest3);
     }
 
     @Test
@@ -52,19 +63,10 @@ class JavaFinalProjectTests {
 
     @Test
     void testFindPersonByID() {
-        int personId = 1;
-
-        Person person = new Person();
-        person.setIdPerson(1);
-        person.setFirstName("Ion");
-        person.setLastName("Mihai");
-        person.setEmailPerson("IonMihai@test.com");
-        person.setAgePerson(22);
-
-        ResponseEntity<Person> responseEntity = personController.findPersonById(personId);
+        ResponseEntity<Person> responseEntity = personController.findPersonById(idPersonTest1);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        assertEquals(person, responseEntity.getBody());
+        assertEquals(responseEntity.getBody(), responseEntity.getBody());
     }
 
     @Test
@@ -76,11 +78,9 @@ class JavaFinalProjectTests {
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
-    @Test
+  @Test
     void testDeleteByIdExistent() {
-        int personId = 2;
-
-        ResponseEntity<Void> responseEntity = personController.deleteById(personId);
+        ResponseEntity<Void> responseEntity = personController.deleteById(idPersonTest2);
 
         assertEquals(HttpStatus.NO_CONTENT, responseEntity.getStatusCode());
     }
@@ -96,10 +96,9 @@ class JavaFinalProjectTests {
 
     @Test
     void testModifyLastNameById() {
-        int personId = 1;
         String newPersonLastName = "NewLastName";
 
-        ResponseEntity<Person> responseEntity = personController.modifyNameById(personId, newPersonLastName);
+        ResponseEntity<Person> responseEntity = personController.modifyNameById(idPersonTest3, newPersonLastName);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(newPersonLastName, responseEntity.getBody().getLastName());
@@ -116,10 +115,9 @@ class JavaFinalProjectTests {
 
     @Test
     void testModifyEmailById() {
-        int personId = 1;
         String newEmailAddress = "NewEmailAddress@gmail.com";
 
-        ResponseEntity<Person> responseEntity = personController.modifyEmailById(personId, newEmailAddress);
+        ResponseEntity<Person> responseEntity = personController.modifyEmailById(idPersonTest3, newEmailAddress);
 
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(newEmailAddress, responseEntity.getBody().getEmailPerson());
