@@ -79,9 +79,6 @@ And finally, insert this text to create the third person:
 
 Now we have 3 persons in out database.
 
-NOTE: For the purpose of the tests, we do not need to add any persons to the database as I there is this @BeforeEach
-annotation which adds 3 Person objects to the database before each test.
-
 ![beforeEachScreenshot Screenshot](/screenshots/beforeEachScreenshot.png)
 
 4. In order to see our database with the persons that we added in the previous steps,
@@ -124,6 +121,9 @@ We should see the e-mail changed.
 9. Now we can switch back to IntelliJ and under src->test->java->com.itfactory->JavaFinalProjectTests, we can run all
    tests for the class.
    All 9 tests should be passed.
+
+   NOTE: For the purpose of the tests, we do not need to add any persons to the database as I there is this @BeforeEach
+annotation which adds 3 Person objects to the database before each test and an @AfterEach annotation that clears the database of the 3 persons added for test purposes.
 
 ![tests Screenshot](screenshots/testsv2.png)
 
